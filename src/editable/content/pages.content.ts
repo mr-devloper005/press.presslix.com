@@ -3,19 +3,19 @@ import { slot4BrandConfig } from '@/editable/theme/brand.config'
 export const pagesContent = {
   home: {
     metadata: {
-      title: 'News, media, and public updates',
-      description: 'Explore announcements, newsroom updates, media coverage, and dynamic categories through a clean distribution experience.',
-      openGraphTitle: 'News, media, and public updates',
-      openGraphDescription: 'Discover articles, visual posts, and connected content through a calmer reading-first experience.',
-      keywords: ['story platform', 'article site', 'visual content', 'content discovery'],
+      title: 'Press release distribution and media updates',
+      description: 'Explore announcements, media coverage, public updates, and distribution-focused content through a clean publishing experience.',
+      openGraphTitle: 'Press release distribution and media updates',
+      openGraphDescription: 'Discover company announcements, media releases, and public updates through a polished distribution experience.',
+      keywords: ['press release distribution', 'media exposure', 'brand visibility', 'news distribution'],
     },
     hero: {
-      badge: 'Latest media and newsroom updates',
-      title: ['A flexible home for', 'news, media, and public updates.'],
-      description: 'Browse distributed media, company announcements, press coverage, and public updates across categories managed directly from the master panel.',
+      badge: 'Press release distribution',
+      title: ['Best press release distribution services', 'that get your story seen.'],
+      description: 'Browse distributed media, company announcements, press coverage, and public updates across categories managed directly from the publishing panel.',
       primaryCta: { label: 'Browse latest updates', href: '/updates' },
       secondaryCta: { label: 'Open News Media', href: '/updates?category=news-media' },
-      searchPlaceholder: 'Search news, companies, categories, and updates',
+      searchPlaceholder: 'Search news, releases, categories, and updates',
       focusLabel: 'Focus',
       featureCardBadge: 'latest cover rotation',
       featureCardTitle: 'Latest posts shape the visual identity of the homepage.',

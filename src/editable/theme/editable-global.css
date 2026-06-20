@@ -3,6 +3,9 @@
   --editorial-red: var(--slot4-accent-fill);
   --editorial-ink: var(--slot4-page-text);
   --editorial-paper: var(--slot4-surface-bg);
+  --press-blue: #2854c5;
+  --press-blue-dark: #183a91;
+  --press-border: #e5e9f2;
 }
 
 html { scroll-behavior: smooth; }
@@ -10,57 +13,50 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--slot4-page-bg) !important;
   color: var(--slot4-page-text) !important;
-  background-image: none !important;
+  background-image:
+    radial-gradient(circle at 8% 8%, rgba(40, 84, 197, .05), transparent 28rem),
+    linear-gradient(180deg, #fff 0%, #f9fbff 42%, #fff 100%) !important;
+  font-family: "Poppins", "Inter", "Segoe UI", Arial, sans-serif;
   font-feature-settings: "kern", "liga", "clig", "calt";
 }
 
 *::selection {
-  background: var(--editorial-red) !important;
-  color: #fff !important;
-  -webkit-text-fill-color: #fff;
+  background: #ffe66d !important;
+  color: #14213d !important;
+  -webkit-text-fill-color: #14213d;
 }
 
 *::-moz-selection {
-  background: var(--editorial-red) !important;
-  color: #fff !important;
+  background: #ffe66d !important;
+  color: #14213d !important;
 }
 
 ::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: #ebe7e1; }
-::-webkit-scrollbar-thumb { background: #171717; border: 2px solid #ebe7e1; }
+::-webkit-scrollbar-track { background: #eef3ff; }
+::-webkit-scrollbar-thumb { background: var(--press-blue); border: 2px solid #eef3ff; border-radius: 999px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--editorial-red); }
 
 .editorial-brand,
 .editorial-serif {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: "Poppins", "Inter", "Segoe UI", Arial, sans-serif;
 }
 
 .editorial-brand {
-  font-style: italic;
-  letter-spacing: -0.065em;
+  font-style: normal;
+  letter-spacing: 0;
 }
 
 .editorial-rule { border-color: color-mix(in srgb, var(--editorial-ink) 22%, transparent); }
 
 .article-content {
-  color: #24211e;
-  font-family: Georgia, 'Times New Roman', serif;
+  color: #1f2937;
+  font-family: "Poppins", "Inter", "Segoe UI", Arial, sans-serif;
   font-size: clamp(1.05rem, 1vw + .75rem, 1.25rem);
   line-height: 1.82;
 }
 
 .article-content > :first-child { margin-top: 0; }
 .article-content p { margin: 0 0 1.55em; }
-.article-content p:first-of-type::first-letter {
-  float: left;
-  margin: .08em .12em 0 0;
-  color: var(--editorial-red);
-  font-family: ui-sans-serif, system-ui, sans-serif;
-  font-size: 4.7em;
-  font-weight: 900;
-  line-height: .72;
-}
-
 .article-content h2,
 .article-content h3,
 .article-content h4 {
@@ -79,9 +75,52 @@ body {
 .article-content li { margin: .5em 0; }
 .article-content img { width: 100%; margin: 2em 0; }
 
-input, textarea, select, button { border-radius: 0 !important; }
+input, textarea, select, button { font-family: inherit; }
+
+.press-hero-orbit {
+  animation: pressOrbit 7s ease-in-out infinite;
+}
+
+.press-phone {
+  animation: pressFloat 6s ease-in-out infinite;
+}
+
+.press-phone:nth-child(2) { animation-delay: -1.5s; }
+.press-phone:nth-child(3) { animation-delay: -3s; }
+
+.press-marquee {
+  animation: pressMarquee 38s linear infinite;
+}
+
+.press-marquee:hover {
+  animation-play-state: paused;
+}
+
+.press-reveal {
+  animation: pressReveal .8s ease both;
+}
+
+@keyframes pressFloat {
+  0%, 100% { transform: translateY(0) rotate(var(--phone-rotate, 0deg)); }
+  50% { transform: translateY(-14px) rotate(var(--phone-rotate, 0deg)); }
+}
+
+@keyframes pressOrbit {
+  0%, 100% { transform: translateY(0) scale(1); opacity: .95; }
+  50% { transform: translateY(10px) scale(1.03); opacity: .75; }
+}
+
+@keyframes pressMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes pressReveal {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 @media (max-width: 640px) {
   .article-content { font-size: 1.05rem; line-height: 1.72; }
-  .article-content p:first-of-type::first-letter { font-size: 3.9em; }
+  .press-marquee { animation-duration: 26s; }
 }
